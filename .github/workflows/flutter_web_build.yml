@@ -1,0 +1,26 @@
+name: Build Flutter Web
+
+on: push
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v4
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+    # Get flutter packages
+    - run: flutter pub get
+    # Build :D
+    - run: flutter build web --release
+    # Publish artifacts
+    - name: Archive production files
+      run: tar -czf build.tar.gz build/web
+    - name: Upload production files
+      uses: actions/upload-artifact@v2
+      with:
+        name: flutter-web-build
+        path: build.tar.gz
+
