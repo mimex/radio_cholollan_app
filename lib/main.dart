@@ -37,25 +37,91 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
   // Monday (1)
   1: [
     ProgramShow(
-      name: "Mañanas de Jam con MoMa",
-      timeRange: "8:00 AM - 10:00 AM",
+      name: "Noticiero Pueblos en Movimiento",
+      timeRange: "8:00 AM - 9:00 AM",
       start: TimeOfDay(hour: 8, minute: 0),
-      end: TimeOfDay(hour: 10, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Mananas+de+Jam",
+      end: TimeOfDay(hour: 9, minute: 0),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
     ),
     ProgramShow(
-      name: "Tardes de Jam con MoMa",
-      timeRange: "1:00 PM - 3:00 PM",
+      name: "Radio Informaremos",
+      timeRange: "9:30 AM - 10:00 AM",
+      start: TimeOfDay(hour: 9, minute: 30),
+      end: TimeOfDay(hour: 9, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Radio_Informaremos_pfl3la.jpg",
+    ),
+    ProgramShow(
+      name: "Tlaktipak",
+      timeRange: "10:00 AM - 11:00 AM",
+      start: TimeOfDay(hour: 10, minute: 0),
+      end: TimeOfDay(hour: 10, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Tlaltipak_di4pik.jpg",
+    ),
+    ProgramShow(
+      name: "Cultura a través de los Pueblos",
+      timeRange: "11:00 AM - 12:00 PM",
+      start: TimeOfDay(hour: 11, minute: 0),
+      end: TimeOfDay(hour: 11, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350788/Cultura_a_trav%C3%A9s_de_los_Pueblos_ctnb7k.jpg",
+    ),
+    ProgramShow(
+      name: "Se Necesita un Pueblo",
+      timeRange: "12:00 PM - 1:00 PM",
+      start: TimeOfDay(hour: 12, minute: 0),
+      end: TimeOfDay(hour: 12, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/Se_Necesita_un_Pueblo_zdbztv.jpg",
+    ),
+    ProgramShow(
+      name: "Tremenda Corte - Tres Patines",
+      timeRange: "1:00 PM - 2:00 PM",
       start: TimeOfDay(hour: 13, minute: 0),
-      end: TimeOfDay(hour: 15, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Tardes+de+Jam",
+      end: TimeOfDay(hour: 13, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/Tremenda_Corte_Tres_Patines_ow0b3v.jpg",
     ),
     ProgramShow(
-      name: "Noches de Jam con MoMa",
-      timeRange: "7:00 PM - 9:00 PM",
-      start: TimeOfDay(hour: 19, minute: 0),
-      end: TimeOfDay(hour: 21, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Noches+de+Jam",
+      name: "Así Suena Cholula",
+      timeRange: "4:00 PM - 5:30 PM",
+      start: TimeOfDay(hour: 16, minute: 0),
+      end: TimeOfDay(hour: 17, minute: 30),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+    ),
+    ProgramShow(
+      name: "RAP",
+      timeRange: "6:00 PM - 7:00 PM",
+      start: TimeOfDay(hour: 18, minute: 0),
+      end: TimeOfDay(hour: 18, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/El_Rap_nos_Hace_Inmunes_dlwrha.jpg",
+    ),
+    ProgramShow(
+      name: "Que Tienes para Cocinar",
+      timeRange: "8:00 PM - 9:30 PM",
+      start: TimeOfDay(hour: 20, minute: 0),
+      end: TimeOfDay(hour: 21, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/Que_tienes_para_Cocinar_pkue2x.jpg",
+    ),
+    ProgramShow(
+      name: "Hasta Moztla",
+      timeRange: "9:30 PM - 10:30 PM",
+      start: TimeOfDay(hour: 21, minute: 30),
+      end: TimeOfDay(hour: 22, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350790/Hasta_Moztla_nao4oq.jpg",
+    ),
+    ProgramShow(
+      name: "Canto de Cenzontles",
+      timeRange: "10:30 PM - 10:30 PM",
+      start: TimeOfDay(hour: 22, minute: 30),
+      end: TimeOfDay(hour: 23, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Canto_de_Cenzontles_lrvjh9.jpg",
+    ),
+  ],
+  // Tuesday (2)
+  2: [
+    ProgramShow(
+      name: "Programa Regular",
+      timeRange: "8:00 AM - 10:00 PM",
+      start: TimeOfDay(hour: 8, minute: 0),
+      end: TimeOfDay(hour: 22, minute: 0),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
     ),
   ],
   // Wednesday (3)
@@ -65,80 +131,201 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "8:00 AM - 9:00 AM",
       start: TimeOfDay(hour: 8, minute: 0),
       end: TimeOfDay(hour: 9, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Noticieros",
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
     ),
     ProgramShow(
       name: "Historias Campiranas",
       timeRange: "9:00 AM - 10:30 AM",
       start: TimeOfDay(hour: 9, minute: 0),
       end: TimeOfDay(hour: 10, minute: 30),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Historias+Campiranas",
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
     ),
     ProgramShow(
-      name: "Icemanahuac Tlahtolnahuatl",
+      name: "Icemanahuac Tlahtolnahuatl (Mundo de la Lengua Nahuatl)",
       timeRange: "11:00 AM - 12:30 PM",
       start: TimeOfDay(hour: 11, minute: 0),
-      end: TimeOfDay(hour: 12, minute: 30),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Icemanahuac",
+      end: TimeOfDay(hour: 12, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350786/Historias_Campiranas_chj9d7.jpg",
     ),
     ProgramShow(
       name: "Venerable Pan de Maíz",
       timeRange: "1:00 PM - 2:00 PM",
       start: TimeOfDay(hour: 13, minute: 0),
-      end: TimeOfDay(hour: 14, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Pan+de+Maiz",
-    ),
-    ProgramShow(
-      name: "El Sabor de la Salsa",
-      timeRange: "2:00 PM - 3:00 PM",
-      start: TimeOfDay(hour: 14, minute: 0),
-      end: TimeOfDay(hour: 15, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Sabor+de+la+Salsa",
+      end: TimeOfDay(hour: 13, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350786/Venerable_Pan_de_Ma%C3%ADz_pstj3p.jpg",
     ),
     ProgramShow(
       name: "Tío Juan (Radio Relatos)",
-      timeRange: "3:30 PM - 4:00 PM",
-      start: TimeOfDay(hour: 15, minute: 30),
-      end: TimeOfDay(hour: 16, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Tio+Juan",
+      timeRange: "2:00 PM - 2:30 PM",
+      start: TimeOfDay(hour: 14, minute: 0),
+      end: TimeOfDay(hour: 14, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350788/Mi_T%C3%ADo_Juan_vas4wh.jpg",
     ),
     ProgramShow(
       name: "Así Suena Cholula",
       timeRange: "4:00 PM - 5:59 PM",
       start: TimeOfDay(hour: 16, minute: 0),
       end: TimeOfDay(hour: 17, minute: 59),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Asi+Suena+Cholula",
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/As%C3%AD_Suena_Cholula_con_Danilo_El_Perico_hmwwg8.jpg",
     ),
     ProgramShow(
       name: "Contramáscaras",
       timeRange: "6:00 PM - 7:29 PM",
       start: TimeOfDay(hour: 18, minute: 0),
       end: TimeOfDay(hour: 19, minute: 29),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Contramascaras",
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
     ),
     ProgramShow(
       name: "Yestli",
       timeRange: "7:30 PM - 9:00 PM",
       start: TimeOfDay(hour: 19, minute: 30),
       end: TimeOfDay(hour: 21, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Yestli",
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Yestli_Sangre_Nueva_miwqfj.jpg",
+    ),
+    ProgramShow(
+      name: "Canto de Cenezontles",
+      timeRange: "9:00 PM - 10:00 PM",
+      start: TimeOfDay(hour: 21, minute: 0),
+      end: TimeOfDay(hour: 21, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Canto_de_Cenzontles_lrvjh9.jpg",
+    ),
+    ProgramShow(
+      name: "Frecuencia Ambiental",
+      timeRange: "10:00 PM - 11:00 PM",
+      start: TimeOfDay(hour: 22, minute: 0),
+      end: TimeOfDay(hour: 22, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Frecuencia_Ambiental_yaecy4.jpg",
+    ),
+  ],
+  // Thursday (4)
+  4: [
+    ProgramShow(
+      name: "Programa Regular",
+      timeRange: "8:00 AM - 10:00 PM",
+      start: TimeOfDay(hour: 8, minute: 0),
+      end: TimeOfDay(hour: 22, minute: 0),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+    ),
+  ],
+  // Friday (5)
+  5: [
+    ProgramShow(
+      name: "Noticieros en Movimiento",
+      timeRange: "8:00 AM - 9:00 AM",
+      start: TimeOfDay(hour: 8, minute: 0),
+      end: TimeOfDay(hour: 9, minute: 0),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg ",
+    ),
+    ProgramShow(
+      name: "Kalimán",
+      timeRange: "9:30 AM - 1h0:00 AM",
+      start: TimeOfDay(hour: 9, minute: 30),
+      end: TimeOfDay(hour: 9, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Kaliman_tfze2z.jpg",
+    ),
+    ProgramShow(
+      name: "Así Suena Cholula",
+      timeRange: "11:00 AM - 1:00 PM",
+      start: TimeOfDay(hour: 11, minute: 0),
+      end: TimeOfDay(hour: 12, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Kaliman_tfze2z.jpg",
+    ),
+    ProgramShow(
+      name: "Acciones por la Tierra",
+      timeRange: "1:00 PM - 2:00 PM",
+      start: TimeOfDay(hour: 13, minute: 0),
+      end: TimeOfDay(hour: 13, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Acciones_por_la_Tierra_x4tofz.jpg",
+    ),
+    ProgramShow(
+      name: "Porfirio Cadena (Radio Relatos)",
+      timeRange: "2:00 PM - 2:30 PM",
+      start: TimeOfDay(hour: 14, minute: 0),
+      end: TimeOfDay(hour: 14, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Porfirio_Cadena_yv9zza.jpg",
+    ),
+    ProgramShow(
+      name: "El Sabor de la Salsa",
+      timeRange: "5:00 PM - 6:00 PM",
+      start: TimeOfDay(hour: 17, minute: 0),
+      end: TimeOfDay(hour: 17, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/El_Sabor_de_la_Salsa_fxpmws.jpg",
+    ),
+    ProgramShow(
+      name: "El Telar",
+      timeRange: "6:00 PM - 7:00 PM",
+      start: TimeOfDay(hour: 18, minute: 0),
+      end: TimeOfDay(hour: 18, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350790/El_Telar_gwnq1t.jpg",
+    ),
+    ProgramShow(
+      name: "Mitote Ranchero",
+      timeRange: "7:00 PM - 9:00 PM",
+      start: TimeOfDay(hour: 19, minute: 0),
+      end: TimeOfDay(hour: 20, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Mitote_Ranchero_tqvank.jpg",
+    ),
+    ProgramShow(
+      name: "Canto de Cenezontles",
+      timeRange: "9:30 PM - 10:30 PM",
+      start: TimeOfDay(hour: 21, minute: 30),
+      end: TimeOfDay(hour: 22, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Canto_de_Cenzontles_lrvjh9.jpg",
     ),
   ],
   // Saturday (6)
   6: [
     ProgramShow(
-      name: "Despierta con Cholollan",
-      timeRange: "8:00 AM - 10:00 AM",
+      name: "Programa Regular",
+      timeRange: "8:00 AM - 10:00 PM",
       start: TimeOfDay(hour: 8, minute: 0),
-      end: TimeOfDay(hour: 10, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Despierta+Cholollan",
+      end: TimeOfDay(hour: 22, minute: 0),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+    ),
+  ],
+  // Sunday (7)
+  7: [
+    ProgramShow(
+      name: "Tierra Mestiza ",
+      timeRange: "9:00 AM - 10:30 AM",
+      start: TimeOfDay(hour: 9, minute: 0),
+      end: TimeOfDay(hour: 10, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350788/Tierra_Mestiza_nb4whi.jpg",
     ),
     ProgramShow(
-      name: "Historias Campiranas",
-      timeRange: "1:00 PM - 2:00 PM",
-      start: TimeOfDay(hour: 13, minute: 0),
-      end: TimeOfDay(hour: 14, minute: 0),
-      imageUrl: "https://via.placeholder.com/400x250.png?text=Historias+Campiranas",
+      name: "Conehuehue",
+      timeRange: "2:00 PM - 3:30 PM",
+      start: TimeOfDay(hour: 14, minute: 0),
+      end: TimeOfDay(hour: 15, minute: 29),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Conehuehue_m1g5nt.jpg",
+    ),
+    ProgramShow(
+      name: "Perifoneo Prieto Popular",
+      timeRange: "4:00 PM - 5:00 PM",
+      start: TimeOfDay(hour: 16, minute: 0),
+      end: TimeOfDay(hour: 16, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350790/Perifoneo_Prieto_Popular_shn1uw.jpg",
+    ),
+    ProgramShow(
+      name: "Bien Estar",
+      timeRange: "5:00 PM - 6:00 PM",
+      start: TimeOfDay(hour: 17, minute: 0),
+      end: TimeOfDay(hour: 17, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350783/Bien-Estar_z7pfc8.jpg",
+    ),
+    ProgramShow(
+      name: "Babel Cholollan",
+      timeRange: "6:00 PM - 7:00 PM",
+      start: TimeOfDay(hour: 18, minute: 0),
+      end: TimeOfDay(hour: 18, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Babel_exmtl7.jpg",
+    ),
+    ProgramShow(
+      name: "Raíces Huastecas",
+      timeRange: "7:00 PM - 8:00 PM",
+      start: TimeOfDay(hour: 18, minute: 0),
+      end: TimeOfDay(hour: 18, minute: 59),
+      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Ra%C3%ADces_Huastecas_h6fuuz.jpg",
     ),
   ],
 };
@@ -203,17 +390,18 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+// Logo Radio Cholollan with click to fmcholollan.org.mx
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFF1E6),
         elevation: 0,
         title: InkWell(
-          onTap: () => _launchURL("https://www.genericlink.com"),
+          onTap: () => _launchURL("https://fmcholollan.org.mx"),
           child: Image.network(
-            "https://fmcholollan.org.mx/wp-content/uploads/2024/04/Cholollan_Logo-Web-2024-2048x383.png",
+            "https://res.cloudinary.com/duuo73nsd/image/upload/v1742355014/Mesa_de_trabajo_1_djaxpi.png",
             width: 333,
             height: 55,
             fit: BoxFit.contain,
@@ -224,7 +412,9 @@ class _HomeScreenState extends State<HomeScreen> {
         index: _currentIndex,
         children: _screens,
       ),
+      // Global APP Nav Bar
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromRGBO(62, 35, 20, 1),
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
         type: BottomNavigationBarType.fixed,
@@ -325,9 +515,9 @@ void initState() {
 
   @override
   Widget build(BuildContext context) {
-    final showName = _currentShow?.name ?? "No hay programa en Vivo";
+    final showName = _currentShow?.name ?? "Programación Normal";
     final showImage = _currentShow?.imageUrl ??
-        "https://via.placeholder.com/400x250.png?text=No+Show";
+        "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg";
     final showTime = _currentShow?.timeRange ?? "";
 
     return Container(
@@ -480,8 +670,8 @@ class _ProgramasScreenState extends State<ProgramasScreen> {
                             borderRadius: BorderRadius.circular(8),
                             child: Image.network(
                               show.imageUrl,
-                              width: 80,
-                              height: 80,
+                              width: 133,
+                              height: 121,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -547,7 +737,7 @@ class NosotrosScreen extends StatelessWidget {
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(
-                              'https://cdn.shopify.com/s/files/1/0247/4021/files/P02140_002--1--seq1.jpg?v=1650601815'),
+                              'https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Acciones_por_la_Tierra_x4tofz.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
