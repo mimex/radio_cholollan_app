@@ -787,7 +787,6 @@ class NosotrosScreen extends StatelessWidget {
   }
 }
 
-// ---------------- MAS SCREEN  ----------------
 class MasScreen extends StatelessWidget {
   const MasScreen({Key? key}) : super(key: key);
 
@@ -801,7 +800,7 @@ class MasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // Added gradient background.
+      // Gradient background
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Color(0xFFFFF1E6), Color(0xFFFFD5BE)],
@@ -816,31 +815,88 @@ class MasScreen extends StatelessWidget {
           runSpacing: 32,
           alignment: WrapAlignment.center,
           children: [
+            // NOTICIAS
             Column(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.new_releases, size: 48, color: Colors.orange),
+                  iconSize: 103, // So the button area matches the image size
+                  icon: Image.network(
+                    "https://res.cloudinary.com/duuo73nsd/image/upload/v1742601834/ICONO_NOTICIAS_CONTORNOS_NEGRO_N_p1bon8.png",
+                    width: 103,
+                    height: 103,
+                    fit: BoxFit.cover,
+                  ),
                   onPressed: () => _launchURL("https://fmcholollan.org.mx/seccion/noticias/"),
                 ),
                 const Text('Noticias'),
               ],
             ),
+
+            // DONACIONES
             Column(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.event, size: 48, color: Colors.orange),
-                  onPressed: () => _launchURL("https://www.google.com"),
+                  iconSize: 103,
+                  icon: Image.network(
+                    "https://res.cloudinary.com/duuo73nsd/image/upload/v1742601835/Donaciones_Fm_Cholollan_N_qrfek6.png",
+                    width: 103,
+                    height: 103,
+                    fit: BoxFit.cover,
+                  ),
+                  onPressed: () => _launchURL("https://fmcholollan.org.mx/servicios-donacion/"),
+                ),
+                const Text('Donaciones'),
+              ],
+            ),
+
+            // PODCAST
+            Column(
+              children: [
+                IconButton(
+                  iconSize: 103,
+                  icon: Image.network(
+                    "https://res.cloudinary.com/duuo73nsd/image/upload/v1742601835/ICONOS_MAIZ_CONTORNO_NEGRO_N_xjfjcg.png",
+                    width: 103,
+                    height: 103,
+                    fit: BoxFit.cover,
+                  ),
+                  onPressed: () => _launchURL("https://fmcholollan.org.mx/seccion/audiovisual/audioteca/"),
+                ),
+                const Text('Podcast'),
+              ],
+            ),
+
+            // EVENTOS
+            Column(
+              children: [
+                IconButton(
+                  iconSize: 103,
+                  icon: Image.network(
+                    "https://res.cloudinary.com/duuo73nsd/image/upload/v1742601835/Eventos_Fm_Cholollan_N_ufdh7h.png",
+                    width: 103,
+                    height: 103,
+                    fit: BoxFit.cover,
+                  ),
+                  onPressed: () => _launchURL("https://fmcholollan.org.mx/"),
                 ),
                 const Text('Eventos'),
               ],
             ),
+
+            // WHATSAPP
             Column(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.podcasts, size: 48, color: Colors.orange),
-                  onPressed: () => _launchURL("https://www.google.com"),
+                  iconSize: 103,
+                  icon: Image.network(
+                    "https://res.cloudinary.com/duuo73nsd/image/upload/v1742601835/Whatsapp_Fm_Cholollan_N_gdevcg.png",
+                    width: 103,
+                    height: 103,
+                    fit: BoxFit.cover,
+                  ),
+                  onPressed: () => _launchURL("https://api.whatsapp.com/send/?phone=5212228432727&text=Cholollan+Radio+%EF%BF%BD%3A&type=phone_number&app_absent=0"),
                 ),
-                const Text('Podcast'),
+                const Text('WhatsApp'),
               ],
             ),
           ],
