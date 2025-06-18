@@ -88,14 +88,25 @@ class _ShowCardState extends State<ShowCard> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   ClipRRect(
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(12)),
-                    child: Image.network(
-                      widget.show.imageUrl,
-                      width: _cardWidth,
-                      height: _cardHeight,
-                      fit: BoxFit.cover,
-                    ),
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                    child: Builder(builder:(_) {
+                      final url = widget.show.imageUrl;
+                      if (url.startsWith('http')) {
+                        return Image.network(
+                          url,
+                          width: _cardWidth,
+                          height: _cardHeight,
+                          fit: BoxFit.cover,
+                        );
+                      } else {
+                        return Image.asset(
+                          url,
+                          width: _cardWidth,
+                          height: _cardHeight,
+                          fit: BoxFit.cover,
+                        );
+                      }
+                    }),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8),
@@ -167,19 +178,27 @@ bool isTimeOfDayInRange(TimeOfDay now, TimeOfDay start, TimeOfDay end) {
 final Map<int, List<ProgramShow>> weeklySchedule = {
   1: [
     ProgramShow(
+      name: "Barra Musical",
+      timeRange: "0:00 AM - 8:00 AM", 
+      start: TimeOfDay(hour: 0, minute: 0),
+      end: TimeOfDay(hour: 7, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
+      description: "Barra Musical",
+    ),
+    ProgramShow(
       name: "Noticiero Pueblos en Movimiento",
-      timeRange: "8:00 AM - 9:00 AM",
+      timeRange: "8:00 AM - 9:00 AM", 
       start: TimeOfDay(hour: 8, minute: 0),
       end: TimeOfDay(hour: 8, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
-      description: "Si me estás leyendo funciona la descripcion",
+      imageUrl: "assets/images/pueblos-en-movimiento.webp",
+      description: "Noticias desde la voz de los Pueblos",
     ),
     ProgramShow(
       name: "Barra Musical",
       timeRange: "9:00 AM - 9:30 AM",
       start: TimeOfDay(hour: 9, minute: 0),
       end: TimeOfDay(hour: 9, minute: 29),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -187,7 +206,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "9:30 AM - 10:00 AM",
       start: TimeOfDay(hour: 9, minute: 30),
       end: TimeOfDay(hour: 9, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Radio_Informaremos_pfl3la.jpg",
+      imageUrl: "assets/images/radio-informaremos.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -195,7 +214,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "10:00 AM - 11:00 AM",
       start: TimeOfDay(hour: 10, minute: 0),
       end: TimeOfDay(hour: 10, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Tlaltipak_di4pik.jpg",
+      imageUrl: "assets/images/tlalipak.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -203,7 +222,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "11:00 AM - 12:00 PM",
       start: TimeOfDay(hour: 11, minute: 0),
       end: TimeOfDay(hour: 11, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350788/Cultura_a_trav%C3%A9s_de_los_Pueblos_ctnb7k.jpg",
+      imageUrl: "assets/images/cultura-a-traves-de-los-pueblos.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -211,31 +230,39 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "12:00 PM - 1:00 PM",
       start: TimeOfDay(hour: 12, minute: 0),
       end: TimeOfDay(hour: 12, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/Se_Necesita_un_Pueblo_zdbztv.jpg",
+      imageUrl: "assets/images/se-necesita-un-pueblo.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Tremenda Corte - Tres Patines",
-      timeRange: "1:00 PM - 2:00 PM",
+      timeRange: "1:00 PM - 1:30 PM",
       start: TimeOfDay(hour: 13, minute: 0),
-      end: TimeOfDay(hour: 13, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/Tremenda_Corte_Tres_Patines_ow0b3v.jpg",
+      end: TimeOfDay(hour: 13, minute: 29),
+      imageUrl: "assets/images/tremanda-corte-tres-patines.webp",
       description: "Si me estás leyendo funciona la descripcion",
+    ),
+    ProgramShow(
+      name: "Barra Musical",
+      timeRange: "1:30 PM - 4:00 PM", 
+      start: TimeOfDay(hour: 13, minute: 30),
+      end: TimeOfDay(hour: 15, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
+      description: "Noticias desde la voz de los Pueblos",
     ),
     ProgramShow(
       name: "Así Suena Cholula",
-      timeRange: "4:00 PM - 5:30 PM",
+      timeRange: "4:00 PM - 6:00 PM",
       start: TimeOfDay(hour: 16, minute: 0),
-      end: TimeOfDay(hour: 17, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      end: TimeOfDay(hour: 17, minute: 59),
+      imageUrl: "assets/images/asi-suena-cholula-lym.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
-      name: "RAP",
+      name: "El RAP nos hace Inmunes",
       timeRange: "6:00 PM - 7:00 PM",
       start: TimeOfDay(hour: 18, minute: 0),
       end: TimeOfDay(hour: 18, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/El_Rap_nos_Hace_Inmunes_dlwrha.jpg",
+      imageUrl: "assets/images/el-rap-nos-hace-inmunes.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -243,7 +270,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "7:00 PM - 8:00 PM",
       start: TimeOfDay(hour: 19, minute: 0),
       end: TimeOfDay(hour: 19, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -251,7 +278,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "8:00 PM - 9:30 PM",
       start: TimeOfDay(hour: 20, minute: 0),
       end: TimeOfDay(hour: 21, minute: 29),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/Que_tienes_para_Cocinar_pkue2x.jpg",
+      imageUrl: "assets/images/que-tienes-para-cocinar.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -259,15 +286,15 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "9:30 PM - 10:30 PM",
       start: TimeOfDay(hour: 21, minute: 30),
       end: TimeOfDay(hour: 22, minute: 29),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350790/Hasta_Moztla_nao4oq.jpg",
+      imageUrl: "assets/images/hasta-moztla.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Canto de Cenzontles",
-      timeRange: "10:30 PM - 11:30 PM",
+      timeRange: "10:30 PM - 11:00 PM",
       start: TimeOfDay(hour: 22, minute: 30),
-      end: TimeOfDay(hour: 23, minute: 29),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Canto_de_Cenzontles_lrvjh9.jpg",
+      end: TimeOfDay(hour: 22, minute: 59),
+      imageUrl: "assets/images/canto-de-cezontles.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -275,19 +302,19 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "11:30 PM - 12:00 AM",
       start: TimeOfDay(hour: 23, minute: 30),
       end: TimeOfDay(hour: 23, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
   ],
 
-  // Tuesday (full-day “ZACATEPEC”)
+  // Tuesday 
   2: [
     ProgramShow(
-      name: "ZACATEPEC",
-      timeRange: "8:00 AM - 10:00 PM",
-      start: TimeOfDay(hour: 8, minute: 0),
-      end: TimeOfDay(hour: 22, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      name: "Barra Musical",
+      timeRange: "6:00 AM - 12:00 PM",
+      start: TimeOfDay(hour: 0, minute: 0),
+      end: TimeOfDay(hour: 23, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
   ],
@@ -295,27 +322,35 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
   // Wednesday
   3: [
     ProgramShow(
+      name: "Barra Musical",
+      timeRange: "0:00 AM - 8:00 AM", 
+      start: TimeOfDay(hour: 0, minute: 0),
+      end: TimeOfDay(hour: 7, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
+      description: "Noticias desde la voz de los Pueblos",
+    ),
+    ProgramShow(
       name: "Noticiero Pueblos en Movimiento",
       timeRange: "8:00 AM - 9:00 AM",
       start: TimeOfDay(hour: 8, minute: 0),
       end: TimeOfDay(hour: 9, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/pueblos-en-movimiento.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Historias Campiranas",
-      timeRange: "9:00 AM - 10:00 AM",
+      timeRange: "9:00 AM - 10:30 AM",
       start: TimeOfDay(hour: 9, minute: 0),
-      end: TimeOfDay(hour: 9, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      end: TimeOfDay(hour: 10, minute: 29),
+      imageUrl: "assets/images/historias-campiranas.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Barra Musical",
-      timeRange: "10:00 AM - 10:30 AM",
-      start: TimeOfDay(hour: 10, minute: 0),
-      end: TimeOfDay(hour: 10, minute: 29),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      timeRange: "10:30 AM - 11:00 AM",
+      start: TimeOfDay(hour: 10, minute: 30),
+      end: TimeOfDay(hour: 10, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -323,7 +358,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "11:00 AM - 12:30 PM",
       start: TimeOfDay(hour: 11, minute: 0),
       end: TimeOfDay(hour: 12, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350786/Historias_Campiranas_chj9d7.jpg",
+      imageUrl: "assets/images/icemanahuac-tlahtolnahuatl.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -331,7 +366,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "12:30 PM - 1:00 PM",
       start: TimeOfDay(hour: 12, minute: 30),
       end: TimeOfDay(hour: 13, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -339,23 +374,15 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "1:00 PM - 2:00 PM",
       start: TimeOfDay(hour: 13, minute: 0),
       end: TimeOfDay(hour: 14, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350786/Venerable_Pan_de_Ma%C3%ADz_pstj3p.jpg",
+      imageUrl: "assets/images/venerable-pan-de-maiz.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "El sabor de la Salsa",
-      timeRange: "2:00 PM - 3:00 PM",
+      timeRange: "2:00 PM - 3:30 PM",
       start: TimeOfDay(hour: 14, minute: 0),
-      end: TimeOfDay(hour: 15, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/El_Sabor_de_la_Salsa_fxpmws.jpg",
-      description: "Si me estás leyendo funciona la descripcion",
-    ),
-    ProgramShow(
-      name: "Barra Musical",
-      timeRange: "3:00 PM - 3:30 PM",
-      start: TimeOfDay(hour: 15, minute: 0),
-      end: TimeOfDay(hour: 15, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      end: TimeOfDay(hour: 15, minute: 29),
+      imageUrl: "assets/images/el-sabor-de-la-salsa.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -363,7 +390,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "3:30 PM - 4:00 PM",
       start: TimeOfDay(hour: 15, minute: 30),
       end: TimeOfDay(hour: 16, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350788/Mi_T%C3%ADo_Juan_vas4wh.jpg",
+      imageUrl: "assets/images/mi-tio-juan.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -371,7 +398,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "4:00 PM - 6:00 PM",
       start: TimeOfDay(hour: 16, minute: 0),
       end: TimeOfDay(hour: 18, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/As%C3%AD_Suena_Cholula_con_Danilo_El_Perico_hmwwg8.jpg",
+      imageUrl: "assets/images/asi-suena-cholula-lym.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -379,7 +406,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "6:00 PM - 7:30 PM",
       start: TimeOfDay(hour: 18, minute: 0),
       end: TimeOfDay(hour: 19, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/contramascaras.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -387,7 +414,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "7:30 PM - 9:00 PM",
       start: TimeOfDay(hour: 19, minute: 30),
       end: TimeOfDay(hour: 21, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Yestli_Sangre_Nueva_miwqfj.jpg",
+      imageUrl: "assets/images/yestli-sangre-nueva.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -395,7 +422,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "9:00 PM - 9:30 PM",
       start: TimeOfDay(hour: 21, minute: 0),
       end: TimeOfDay(hour: 21, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -403,7 +430,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "9:30 PM - 10:00 PM",
       start: TimeOfDay(hour: 21, minute: 30),
       end: TimeOfDay(hour: 22, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Canto_de_Cenzontles_lrvjh9.jpg",
+      imageUrl: "assets/images/canto-de-cezontles.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -411,7 +438,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "10:00 PM - 11:00 PM",
       start: TimeOfDay(hour: 22, minute: 0),
       end: TimeOfDay(hour: 23, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Frecuencia_Ambiental_yaecy4.jpg",
+      imageUrl: "assets/images/frecuencia-ambiental.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -419,19 +446,19 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "11:00 PM - 12:00 AM",
       start: TimeOfDay(hour: 23, minute: 0),
       end: TimeOfDay(hour: 23, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
   ],
 
-  // Thursday (full-day “ZACATEPEC”)
+  // Thursday 
   4: [
     ProgramShow(
-      name: "ZACATEPEC",
-      timeRange: "8:00 AM - 12:00 AM",
-      start: TimeOfDay(hour: 8, minute: 0),
+      name: "Barra Musical",
+      timeRange: "6:00 AM - 12:00 AM",
+      start: TimeOfDay(hour: 0, minute: 0),
       end: TimeOfDay(hour: 23, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
   ],
@@ -439,11 +466,19 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
   // Friday
   5: [
     ProgramShow(
+      name: "Barra Musical",
+      timeRange: "0:00 AM - 8:00 AM", 
+      start: TimeOfDay(hour: 0, minute: 0),
+      end: TimeOfDay(hour: 7, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
+      description: "Noticias desde la voz de los Pueblos",
+    ),
+    ProgramShow(
       name: "Noticiero Pueblos en Movimiento",
       timeRange: "8:00 AM - 9:00 AM",
       start: TimeOfDay(hour: 8, minute: 0),
       end: TimeOfDay(hour: 9, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/pueblos-en-movimiento.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -451,23 +486,23 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "9:00 AM - 9:30 AM",
       start: TimeOfDay(hour: 9, minute: 0),
       end: TimeOfDay(hour: 9, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Kalimán",
-      timeRange: "9:30 AM - 10:30 AM",
+      timeRange: "9:30 AM - 10:00 AM",
       start: TimeOfDay(hour: 9, minute: 30),
-      end: TimeOfDay(hour: 10, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Kaliman_tfze2z.jpg",
+      end: TimeOfDay(hour: 9, minute: 59),
+      imageUrl: "assets/images/kaliman.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Barra Musical",
-      timeRange: "10:30 AM - 11:00 AM",
-      start: TimeOfDay(hour: 10, minute: 30),
-      end: TimeOfDay(hour: 11, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      timeRange: "10:00 AM - 11:00 AM",
+      start: TimeOfDay(hour: 10, minute: 0),
+      end: TimeOfDay(hour: 10, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -475,7 +510,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "11:00 AM - 1:00 PM",
       start: TimeOfDay(hour: 11, minute: 0),
       end: TimeOfDay(hour: 13, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350787/El_Rap_nos_Hace_Inmunes_dlwrha.jpg",
+      imageUrl: "assets/images/asi-suena-cholula-v.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -483,7 +518,7 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "1:00 PM - 2:00 PM",
       start: TimeOfDay(hour: 13, minute: 0),
       end: TimeOfDay(hour: 14, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Acciones_por_la_Tierra_x4tofz.jpg",
+      imageUrl: "assets/images/acciones-por-la-tierra.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -491,67 +526,83 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "2:00 PM - 2:30 PM",
       start: TimeOfDay(hour: 14, minute: 0),
       end: TimeOfDay(hour: 14, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Porfirio_Cadena_yv9zza.jpg",
+      imageUrl: "assets/images/porfirio-cadena.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Barra Musical",
-      timeRange: "2:30 PM - 5:00 PM",
+      timeRange: "2:30 PM - 4:30 PM",
       start: TimeOfDay(hour: 14, minute: 30),
-      end: TimeOfDay(hour: 17, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      end: TimeOfDay(hour: 16, minute: 29),
+      imageUrl: "assets/images/barra-musical.webp",
+      description: "Si me estás leyendo funciona la descripcion",
+    ),
+    ProgramShow(
+      name: "Periodismo de lo Posible",
+      timeRange: "4:30 PM - 5:00 PM",
+      start: TimeOfDay(hour: 16, minute: 30),
+      end: TimeOfDay(hour: 16, minute: 59),
+      imageUrl: "assets/images/periodismo-de-lo-posible.webp",
+      description: "Historias de esperanza desde los territorios",
+    ),
+    ProgramShow(
+      name: "Tiempo de Lectura",
+      timeRange: "5:00 PM - 6:00 PM",
+      start: TimeOfDay(hour: 17, minute: 0),
+      end: TimeOfDay(hour: 18, minute: 0),
+      imageUrl: "assets/images/tiempo-de-lectura.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "El Telar",
-      timeRange: "5:00 PM - 6:00 PM",
-      start: TimeOfDay(hour: 17, minute: 0),
-      end: TimeOfDay(hour: 18, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350790/El_Telar_gwnq1t.jpg",
+      timeRange: "6:00 PM - 7:00 PM",
+      start: TimeOfDay(hour: 18, minute: 0),
+      end: TimeOfDay(hour: 19, minute: 59),
+      imageUrl: "assets/images/el-telar.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Mitote Ranchero",
-      timeRange: "6:00 PM - 9:00 PM",
-      start: TimeOfDay(hour: 18, minute: 0),
-      end: TimeOfDay(hour: 21, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350784/Mitote_Ranchero_tqvank.jpg",
+      timeRange: "7:00 PM - 9:00 PM",
+      start: TimeOfDay(hour: 19, minute: 0),
+      end: TimeOfDay(hour: 20, minute: 59),
+      imageUrl: "assets/images/mitote-ranchero.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Barra Musical",
-      timeRange: "9:00 PM - 10:30 PM",
+      timeRange: "9:00 PM - 9:30 PM",
       start: TimeOfDay(hour: 21, minute: 0),
-      end: TimeOfDay(hour: 22, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      end: TimeOfDay(hour: 21, minute: 29),
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Canto de Cenzontles",
-      timeRange: "10:30 PM - 11:00 PM",
-      start: TimeOfDay(hour: 22, minute: 30),
-      end: TimeOfDay(hour: 23, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Canto_de_Cenzontles_lrvjh9.jpg",
+      timeRange: "9:30 PM - 10:00 PM",
+      start: TimeOfDay(hour: 21, minute: 30),
+      end: TimeOfDay(hour: 21, minute: 59),
+      imageUrl: "assets/images/canto-de-cezontles.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Barra Musical",
-      timeRange: "11:00 PM - 12:00 AM",
-      start: TimeOfDay(hour: 23, minute: 0),
+      timeRange: "10:00 PM - 12:00 AM",
+      start: TimeOfDay(hour: 22, minute: 0),
       end: TimeOfDay(hour: 23, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
   ],
 
-  // Saturday (full-day “ZACATEPEC”)
+  // Saturday 
   6: [
     ProgramShow(
-      name: "ZACATEPEC",
-      timeRange: "8:00 AM - 12:00 AM",
-      start: TimeOfDay(hour: 8, minute: 0),
+      name: "Barra Musical",
+      timeRange: "6:00 AM - 12:00 AM",
+      start: TimeOfDay(hour: 6, minute: 0),
       end: TimeOfDay(hour: 23, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
   ],
@@ -559,11 +610,11 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
   // Sunday
   7: [
     ProgramShow(
-      name: "ZACATEPEC",
-      timeRange: "8:00 AM - 9:00 AM",
-      start: TimeOfDay(hour: 8, minute: 0),
+      name: "Barra Musical",
+      timeRange: "6:00 AM - 9:00 AM",
+      start: TimeOfDay(hour: 6, minute: 0),
       end: TimeOfDay(hour: 9, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
@@ -571,79 +622,79 @@ final Map<int, List<ProgramShow>> weeklySchedule = {
       timeRange: "9:00 AM - 10:30 AM",
       start: TimeOfDay(hour: 9, minute: 0),
       end: TimeOfDay(hour: 10, minute: 30),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350788/Tierra_Mestiza_nb4whi.jpg",
+      imageUrl: "assets/images/tierra-mestiza.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
-      name: "ZACATEPEC",
-      timeRange: "10:30 AM - 4:00 PM",
+      name: "Barra Musical",
+      timeRange: "10:30 AM - 2:00 PM",
       start: TimeOfDay(hour: 10, minute: 30),
-      end: TimeOfDay(hour: 16, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      end: TimeOfDay(hour: 13, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Conehuehue",
-      timeRange: "4:00 PM - 5:00 PM",
-      start: TimeOfDay(hour: 16, minute: 0),
-      end: TimeOfDay(hour: 17, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Conehuehue_m1g5nt.jpg",
-      description: "Si me estás leyendo funciona la descripcion",
-    ),
-    ProgramShow(
-      name: "Barra Musical",
-      timeRange: "5:00 PM - 6:00 PM",
-      start: TimeOfDay(hour: 17, minute: 0),
-      end: TimeOfDay(hour: 18, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      timeRange: "2:00 PM - 3:30 PM",
+      start: TimeOfDay(hour: 14, minute: 0),
+      end: TimeOfDay(hour: 15, minute: 29),
+      imageUrl: "assets/images/conehuehue.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Perifoneo Prieto Popular",
-      timeRange: "6:00 PM - 7:00 PM",
-      start: TimeOfDay(hour: 18, minute: 0),
-      end: TimeOfDay(hour: 19, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350790/Perifoneo_Prieto_Popular_shn1uw.jpg",
+      timeRange: "3:30 PM - 6:00 PM",
+      start: TimeOfDay(hour: 15, minute: 29),
+      end: TimeOfDay(hour: 17, minute: 59),
+      imageUrl: "assets/images/perifoneo-prieto.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Babel Cholollan",
-      timeRange: "7:00 PM - 8:00 PM",
-      start: TimeOfDay(hour: 19, minute: 0),
-      end: TimeOfDay(hour: 20, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350789/Babel_exmtl7.jpg",
+      timeRange: "6:00 PM - 7:00 PM",
+      start: TimeOfDay(hour: 18, minute: 0),
+      end: TimeOfDay(hour: 18, minute: 59),
+      imageUrl: "assets/images/babel.webp",
       description: "Esta es una descripcions de purebala para ver que show con el show",
     ),
     ProgramShow(
       name: "Bien Estar",
-      timeRange: "8:00 PM - 9:00 PM",
-      start: TimeOfDay(hour: 20, minute: 0),
-      end: TimeOfDay(hour: 21, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350783/Bien-Estar_z7pfc8.jpg",
+      timeRange: "7:00 PM - 8:00 PM",
+      start: TimeOfDay(hour: 19, minute: 0),
+      end: TimeOfDay(hour: 19, minute: 59),
+      imageUrl: "assets/images/bien-estar.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Raíces Huastecas",
-      timeRange: "9:00 PM - 10:00 PM",
-      start: TimeOfDay(hour: 21, minute: 0),
-      end: TimeOfDay(hour: 22, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Ra%C3%ADces_Huastecas_h6fuuz.jpg",
+      timeRange: "8:00 PM - 9:30 PM",
+      start: TimeOfDay(hour: 20, minute: 0),
+      end: TimeOfDay(hour: 21, minute: 29),
+      imageUrl: "assets/images/raices-huastecas.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Barra Musical",
-      timeRange: "10:00 PM - 11:00 PM",
-      start: TimeOfDay(hour: 22, minute: 0),
-      end: TimeOfDay(hour: 23, minute: 0),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      timeRange: "9:30 PM - 10:00 PM",
+      start: TimeOfDay(hour: 21, minute: 30),
+      end: TimeOfDay(hour: 21, minute: 59),
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
     ProgramShow(
       name: "Hora Nacional",
-      timeRange: "11:00 PM - 12:00 AM",
-      start: TimeOfDay(hour: 23, minute: 0),
+      timeRange: "10:00 PM - 10:30 AM",
+      start: TimeOfDay(hour: 22, minute: 0),
+      end: TimeOfDay(hour: 22, minute: 29),
+      imageUrl: "assets/images/la-hora-nacional.webp",
+      description: "Si me estás leyendo funciona la descripcion",
+    ),
+    ProgramShow(
+      name: "Barra Musical",
+      timeRange: "10:30 PM - 12:00 PM",
+      start: TimeOfDay(hour: 22, minute: 30),
       end: TimeOfDay(hour: 23, minute: 59),
-      imageUrl: "https://res.cloudinary.com/duuo73nsd/image/upload/v1742350791/Alcoh%C3%B3licos_An%C3%B3nimos_1920_dbbrww.jpg",
+      imageUrl: "assets/images/barra-musical.webp",
       description: "Si me estás leyendo funciona la descripcion",
     ),
   ],
@@ -876,7 +927,13 @@ Widget build(BuildContext context) {
                 aspectRatio: 1,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.network(showImage, fit: BoxFit.cover),
+                  child: Builder(builder: (_) {
+                    if (showImage.startsWith('http')) {
+                      return Image.network(showImage, fit: BoxFit.cover);
+                    } else {
+                      return Image.asset(showImage, fit: BoxFit.cover);
+                    }
+                  }),
                 ),
               ),
             ),
@@ -1050,15 +1107,13 @@ class _ProgramasScreenState extends State<ProgramasScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   ClipRRect(
-                                    borderRadius: const BorderRadius.vertical(
-                                      top: Radius.circular(12),
-                                    ),
-                                    child: Image.network(
-                                      show.imageUrl,
-                                      width: _cardImageWidth,
-                                      height: _cardImageHeight,
-                                      fit: BoxFit.cover,
-                                    ),
+                                    borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                                    child: Builder(builder:(_) {
+                                      final url = show.imageUrl;
+                                      return url.startsWith('http')
+                                        ? Image.network(url, width: _cardImageWidth, height: _cardImageHeight, fit: BoxFit.cover)
+                                        : Image.asset(url, width: _cardImageWidth, height: _cardImageHeight, fit: BoxFit.cover);
+                                    }),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -1117,7 +1172,7 @@ class NosotrosScreen extends StatelessWidget {
     const double bannerAspectRatio = 3.5;
 
     return Container(
-      // This gradient now fills the *entire* screen behind everything.
+      // This gradient fills the *entire* screen behind everything.
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Color(0xFFFFF1E6), Color(0xFFFFD5BE)],
@@ -1137,23 +1192,14 @@ class NosotrosScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+
                     // ─── Banner (fixed aspect ratio) ───
                     AspectRatio(
                       aspectRatio: bannerAspectRatio,
-                      child: Image.network(
-                        'https://res.cloudinary.com/duuo73nsd/image/upload/v1742350785/Acciones_por_la_Tierra_x4tofz.jpg',
+                      child: Image.asset(
+                        'assets/images/portada-nosotros.webp',
                         fit: BoxFit.cover,
-                        loadingBuilder: (ctx, child, progress) {
-                          if (progress == null) return child;
-                          return Center(
-                            child: CircularProgressIndicator(
-                              value: progress.expectedTotalBytes != null
-                                  ? progress.cumulativeBytesLoaded /
-                                      (progress.expectedTotalBytes!)
-                                  : null,
-                            ),
-                          );
-                        },
+                        // error handling
                         errorBuilder: (ctx, error, stack) {
                           return Container(
                             color: Colors.grey[200],
@@ -1183,11 +1229,9 @@ class NosotrosScreen extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
-                        'Somos habitantes del Valle de Cholula, y desde el año 2009 en Tlaxcalancingo, '
-                        'comenzamos a construir una Radio de Uso Social Indígena y Comunitaria, que '
-                        'camina, escucha y difunde la palabra de los pueblos. Con 745 watts de potencia '
-                        'comunal transmitimos en el 107.1 FM y en el éter de los corazones que sueñan, '
-                        'se manifiestan y se organizan en busca de otro mundo posible. ¡Ayúdanos a construirlo!',
+                        'Somos habitantes del Valle de Cholula, y desde el año 2009 en Tlaxcalancingo, comenzamos a construir una Radio de Uso Social Indígena y Comunitaria, que camina, escucha y difunde la palabra de los pueblos.\n\n'
+                        'Con 745 watts de potencia comunal, transmitimos en el 107.1 FM y en el éter de los corazones que sueñan, se manifiestan y se organizan para construir otro mundo posible.\n\n'
+                        '¡Ayúdanos a fortalecer el proyecto para que la voz de los pueblos se escuche más fuerte!',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 16),
                       ),
