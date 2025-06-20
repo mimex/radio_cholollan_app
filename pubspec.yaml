@@ -54,11 +54,50 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/icons/noticias.png
-    - assets/icons/donaciones.png
-    - assets/icons/podcast.png
-    - assets/icons/eventos.png
-    - assets/icons/whatsapp.png
+    - assets/icons/noticias.webp
+    - assets/icons/donaciones.webp
+    - assets/icons/podcast.webp
+    - assets/icons/eventos.webp
+    - assets/icons/whatsapp.webp
+    - assets/images/acciones-por-la-tierra.webp
+    - assets/images/asi-suena-cholula-lym.webp
+    - assets/images/asi-suena-cholula-v.webp
+    - assets/images/babel.webp
+    - assets/images/barra-musical.webp
+    - assets/images/bien-estar.webp
+    - assets/images/canto-de-cezontles.webp
+    - assets/images/conehuehue.webp
+    - assets/images/contramascaras.webp
+    - assets/images/cultura-a-traves-de-los-pueblos.webp
+    - assets/images/el-rap-nos-hace-inmunes.webp
+    - assets/images/el-sabor-de-la-salsa.webp
+    - assets/images/el-telar.webp
+    - assets/images/frecuencia-ambiental.webp
+    - assets/images/hasta-moztla.webp
+    - assets/images/historias-campiranas.webp
+    - assets/images/icemanahuac-tlahtolnahuatl.webp
+    - assets/images/kaliman.webp
+    - assets/images/la-hora-nacional.webp
+    - assets/images/mi-tio-juan.webp
+    - assets/images/mitote-ranchero.webp
+    - assets/images/perifoneo-prieto.webp
+    - assets/images/periodismo-de-lo-posible.webp
+    - assets/images/porfirio-cadena.webp
+    - assets/images/portada-nosotros.webp
+    - assets/images/programacion-normal.webp
+    - assets/images/pueblos-en-movimiento.webp
+    - assets/images/que-tienes-para-cocinar.webp
+    - assets/images/radio-hasta-encontrarles.webp
+    - assets/images/radio-informaremos.webp
+    - assets/images/raices-huastecas.webp
+    - assets/images/se-necesita-un-pueblo.webp
+    - assets/images/tiempo-de-lectura.webp
+    - assets/images/tierra-mestiza.webp
+    - assets/images/tlalipak.webp
+    - assets/images/tremanda-corte-tres-patines.webp
+    - assets/images/venerable-pan-de-maiz.webp
+    - assets/images/yestli-sangre-nueva.webp
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
